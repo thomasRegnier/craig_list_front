@@ -1,18 +1,30 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <!-- <Categories /> -->
+    <Cities />
   </div>
 </template>
-
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+
+  import { categories} from "../api/categories";
+  import Categories from "./../components/Categories"
+  import Cities from '../components/Cities'
 
 export default {
-  name: 'Home',
-  components: {
-    HelloWorld
-  }
-}
+    components:{
+      Categories,
+      Cities
+    },
+        computed:{
+            active: {
+                get(){
+                    console.log(this.$route.name)
+                    return this.$route.name
+                },
+            }
+        }
+    }
 </script>
+
+
+        
